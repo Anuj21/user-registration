@@ -1,0 +1,94 @@
+<div class="login-container">
+  <div class="login-content">
+    <mat-toolbar class="login-toolbar" color="primary">Sign Up !</mat-toolbar>
+    <mat-card>
+      <form
+        [formGroup]="registerForm"
+        #form="ngForm"
+        (ngSubmit)="onSubmit(form)"
+      >
+        <mat-form-field>
+          <mat-icon matPrefix>person_outline</mat-icon>
+          <input
+            autofocus
+            type="text"
+            matInput
+            placeholder="First Name"
+            formControlName="firstName"
+          />
+          <mat-error *ngIf="checkValidation('firstName')">
+            {{ fieldRequired }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-icon matPrefix>person_outline</mat-icon>
+          <input
+            autofocus
+            type="text"
+            matInput
+            placeholder="Last Name"
+            formControlName="lastName"
+          />
+          <mat-error *ngIf="checkValidation('lastName')">
+            {{ fieldRequired }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-icon matPrefix>email</mat-icon>
+          <input
+            autofocus
+            type="email"
+            matInput
+            placeholder="Email"
+            formControlName="email"
+          />
+          <mat-error *ngIf="checkValidation('email')">
+            {{ emaiErrors() }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-icon matPrefix>lock_outline</mat-icon>
+          <input
+            [type]="hidePassword ? 'password' : 'text'"
+            autocomplete="false"
+            matInput
+            placeholder="Password"
+            formControlName="password"
+            #password
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword"
+          >
+            <mat-icon>{{
+              hidePassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-hint>
+            Choose a password of at least eight characters, uppercase and
+            lowercase letters
+          </mat-hint>
+          <mat-error *ngIf="checkValidation('password')">
+            {{ getErrorPassword() }}
+          </mat-error>
+        </mat-form-field>
+        <div class="socialMediaFlex">
+          <button
+            [disabled]="registerForm.invalid"
+            type="submit"
+            mat-raised-button
+            color="primary"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

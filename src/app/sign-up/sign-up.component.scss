@@ -1,0 +1,51 @@
+.login-container {
+  margin-top: 50px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+form {
+  width: 100%;
+}
+
+.login-content {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+}
+
+.login-toolbar {
+  justify-content: center;
+}
+
+.mat-form-field {
+  width: 100%;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.socialMediaFlex {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+
+  button {
+    width: 50%;
+  }
+}
+
+.mat-form-field-invalid mat-icon {
+  color: red;
+}
+
+::ng-deep.success {
+  background-color: green;
+  color: white;
+}
+
+::ng-deep.error {
+  background-color: red;
+  color: white;
+}
