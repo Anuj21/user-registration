@@ -85,6 +85,9 @@
             mat-raised-button
             color="primary"
           >
+            <mat-icon *ngIf="isLoading">
+              <mat-spinner diameter="20" color="warn"></mat-spinner>
+            </mat-icon>
             Submit
           </button>
         </div>
